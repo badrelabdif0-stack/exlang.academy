@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EXLang — Excellence Language Academy</title>
+  <meta name="description" content="EXLang — Any language. One mission: YOU." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:#C9A227; --gold-lt:#E8C84A; --gold-pale:#F0D878; --gold-dark:#8A6B10;
+      --gold-glow:rgba(201,162,39,.40); --gold-glow2:rgba(232,200,74,.20);
+      --gold-bg:rgba(201,162,39,.10); --gold-bg2:rgba(201,162,39,.06);
+      --gold-border:rgba(201,162,39,.28); --gold-border2:rgba(201,162,39,.15);
+      --ink:#080600; --dark:#0D0B00; --dark2:#141100; --dark3:#1C1800;
+      --panel:rgba(20,17,0,.85); --card:rgba(18,15,0,.90);
+      --white:#FFFFFF; --off-white:#F5EDD0;
+      --muted:#9A8A60; --muted2:#6A5D3A;
+      --line:rgba(201,162,39,.14); --line2:rgba(201,162,39,.08);
+      --r:16px; --rl:22px; --rxl:30px; --max:1100px;
+      --fd:'Playfair Display',Georgia,serif; --fb:'Plus Jakarta Sans',system-ui,sans-serif;
+      --h1:clamp(2.8rem,5.5vw,5rem); --h2:clamp(2rem,3.2vw,3rem); --h3:clamp(1.1rem,1.5vw,1.3rem);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--fb);color:var(--off-white);background:var(--ink);line-height:1.6;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+    /* ── GLOBAL BG GLOW ── */
+    body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse 1000px 600px at 80% 0%,rgba(201,162,39,.13) 0%,transparent 55%),
+        radial-gradient(ellipse 700px 500px at 10% 60%,rgba(201,162,39,.07) 0%,transparent 55%),
+        radial-gradient(ellipse 500px 400px at 50% 100%,rgba(201,162,39,.06) 0%,transparent 60%);}
+    main,header,footer{position:relative;z-index:1}
+
+    /* ── PARTICLES ── */
+    #particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .pt{position:absolute;border-radius:50%;animation:float-up linear infinite;opacity:0}
+    @keyframes float-up{
+      0%{transform:translateY(0) scale(1) rotate(0deg);opacity:0}
+      8%{opacity:.6}
+      85%{opacity:.15}
+      100%{transform:translateY(-110vh) scale(.3) rotate(360deg);opacity:0}
+    }
+
+    /* ── HEADER ── */
+    header{position:sticky;top:0;z-index:100;background:rgba(8,6,0,.82);
+      backdrop-filter:saturate(160%) blur(20px);-webkit-backdrop-filter:saturate(160%) blur(20px);
+      border-bottom:1px solid var(--line);transition:box-shadow .3s,border-color .3s}
+    header.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.6);border-color:rgba(201,162,39,.22)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo-badge{width:46px;height:46px;border-radius:50%;flex:0 0 auto;
+      background:radial-gradient(circle at 40% 35%,#2A2200,#0D0900);
+      border:2px solid var(--gold);
+      box-shadow:0 0 18px var(--gold-glow),inset 0 0 10px rgba(201,162,39,.1);
+      display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+      animation:logo-shimmer 4s ease-in-out infinite}
+    @keyframes logo-shimmer{
+      0%,100%{box-shadow:0 0 18px var(--gold-glow)}
+      50%{box-shadow:0 0 32px rgba(201,162,39,.65),0 0 60px rgba(201,162,39,.2)}
+    }
+    .logo-badge span{font-family:var(--fd);font-size:17px;font-weight:900;color:var(--gold);letter-spacing:-1px;text-shadow:0 0 12px var(--gold-glow)}
+    .brand-text b{font-family:var(--fd);font-size:17px;font-weight:900;color:var(--white);letter-spacing:.5px;display:block}
+    .brand-text small{font-size:11px;color:var(--muted);display:block;margin-top:1px;letter-spacing:.3px}
+    nav{display:flex;gap:2px;align-items:center}
+    nav a{padding:9px 14px;border-radius:var(--r);color:var(--muted);font-weight:600;font-size:13px;letter-spacing:.3px;transition:.2s;position:relative}
+    nav a::after{content:"";position:absolute;bottom:4px;left:50%;transform:translateX(-50%) scaleX(0);width:16px;height:2px;background:var(--gold);border-radius:2px;transition:transform .2s}
+    nav a:hover{color:var(--gold-lt);background:var(--gold-bg2)}
+    nav a:hover::after{transform:translateX(-50%) scaleX(1)}
+    .right{display:flex;align-items:center;gap:10px}
+    .lang{display:inline-flex;gap:3px;align-items:center;padding:4px;border:1px solid var(--line);border-radius:999px;background:rgba(20,17,0,.6)}
+    .lang button{border:0;background:transparent;padding:6px 11px;border-radius:999px;font-family:var(--fb);font-weight:700;font-size:11px;letter-spacing:.5px;color:var(--muted);cursor:pointer;transition:.18s}
+    .lang button.active{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--ink);box-shadow:0 2px 10px var(--gold-glow)}
+
+    /* ── BUTTONS ── */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:var(--r);font-family:var(--fb);font-weight:700;font-size:14px;letter-spacing:.2px;border:1px solid var(--line);background:var(--gold-bg2);color:var(--off-white);transition:.22s;cursor:pointer;white-space:nowrap;position:relative;overflow:hidden}
+    .btn::after{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transition:left .5s;pointer-events:none}
+    .btn:hover{transform:translateY(-2px);border-color:var(--gold-border)}
+    .btn:hover::after{left:100%}
+    .btn.primary{background:linear-gradient(135deg,var(--gold-lt) 0%,var(--gold) 50%,var(--gold-dark) 100%);border:none;color:var(--ink);box-shadow:0 4px 20px var(--gold-glow);font-weight:800}
+    .btn.primary:hover{box-shadow:0 8px 36px rgba(201,162,39,.55);transform:translateY(-3px)}
+    .btn.outline{background:transparent;border-color:var(--gold-border);color:var(--gold-lt)}
+    .btn.outline:hover{background:var(--gold-bg)}
+
+    /* ── LAYOUT ── */
+    section{padding:96px 0}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+    .eyebrow::before,.eyebrow::after{content:"";height:1px;width:24px;background:linear-gradient(90deg,transparent,var(--gold))}
+    .eyebrow::after{background:linear-gradient(90deg,var(--gold),transparent)}
+    h1{font-family:var(--fd);font-size:var(--h1);line-height:1.0;letter-spacing:-2px;font-weight:900;color:var(--white)}
+    h1 em{font-style:italic;color:var(--gold)}
+    h2{font-family:var(--fd);font-size:var(--h2);letter-spacing:-1px;font-weight:900;color:var(--white);line-height:1.1}
+    h3{font-size:var(--h3);font-weight:800;color:var(--white);margin-bottom:10px;letter-spacing:-.2px}
+    p{color:var(--muted);line-height:1.75;font-size:1rem}
+    .lead{font-size:1.1rem;color:rgba(245,237,208,.7)}
+
+    /* ─────────────────────────────────────────
+       SCROLL ANIMATION SYSTEM
+    ───────────────────────────────────────── */
+    /* Base: all animated elements start hidden */
+    [data-anim]{will-change:opacity,transform;transition-timing-function:cubic-bezier(.22,.61,.36,1)}
+
+    [data-anim="up"]       {opacity:0;transform:translateY(40px)}
+    [data-anim="up-sm"]    {opacity:0;transform:translateY(20px)}
+    [data-anim="down"]     {opacity:0;transform:translateY(-30px)}
+    [data-anim="left"]     {opacity:0;transform:translateX(-50px)}
+    [data-anim="right"]    {opacity:0;transform:translateX(50px)}
+    [data-anim="scale"]    {opacity:0;transform:scale(.88)}
+    [data-anim="scale-up"] {opacity:0;transform:scale(.94) translateY(20px)}
+    [data-anim="fade"]     {opacity:0}
+    [data-anim="flip"]     {opacity:0;transform:perspective(600px) rotateX(18deg) translateY(20px)}
+    [data-anim].in{opacity:1!important;transform:none!important}
+    [data-anim]{transition-duration:.75s}
+    [data-delay="1"]{transition-delay:.10s}
+    [data-delay="2"]{transition-delay:.20s}
+    [data-delay="3"]{transition-delay:.30s}
+    [data-delay="4"]{transition-delay:.42s}
+    [data-delay="5"]{transition-delay:.54s}
+    [data-delay="6"]{transition-delay:.66s}
+
+    /* ── HERO ── */
+    .hero{padding:108px 0 88px;position:relative;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;pointer-events:none}
+    .hero-bg-orb{position:absolute;border-radius:50%;filter:blur(80px)}
+    .hero-bg-orb.o1{width:700px;height:700px;top:-250px;right:-150px;background:radial-gradient(circle,rgba(201,162,39,.14),transparent 65%)}
+    .hero-bg-orb.o2{width:500px;height:500px;bottom:-150px;left:-100px;background:radial-gradient(circle,rgba(201,162,39,.08),transparent 65%)}
+    /* floating rings */
+    .hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,162,39,.08);animation:ring-pulse 6s ease-in-out infinite}
+    .hero-ring.r1{width:900px;height:900px;top:-350px;right:-350px;animation-delay:0s}
+    .hero-ring.r2{width:600px;height:600px;top:-200px;right:-150px;animation-delay:-2s}
+    .hero-ring.r3{width:300px;height:300px;top:-50px;right:50px;animation-delay:-4s}
+    @keyframes ring-pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.04)}}
+
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;position:relative;z-index:1}
+    .live-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold-border);background:rgba(201,162,39,.08);padding:8px 16px;border-radius:999px;font-size:12px;font-weight:700;color:var(--gold-lt);letter-spacing:.4px;margin-bottom:22px;animation:badge-breathe 3s ease-in-out infinite}
+    @keyframes badge-breathe{0%,100%{box-shadow:0 0 0 0 transparent}50%{box-shadow:0 0 0 4px rgba(201,162,39,.10)}}
+    .live-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:dot-pulse 1.6s infinite;box-shadow:0 0 8px var(--gold-glow)}
+    @keyframes dot-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.65);opacity:.5}}
+
+    /* Animated headline words */
+    .hero-word{display:inline-block;animation:word-in .8s cubic-bezier(.22,.61,.36,1) both}
+    @keyframes word-in{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+    .flags-strip{display:flex;align-items:center;gap:8px;margin-top:22px;flex-wrap:wrap}
+    .flags-strip .lbl{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-right:4px}
+    .flag-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--gold-bg2);font-size:12px;font-weight:600;color:var(--off-white);transition:.22s;cursor:default}
+    .flag-pill:hover{border-color:var(--gold-border);background:var(--gold-bg);transform:translateY(-2px);box-shadow:0 4px 16px rgba(201,162,39,.15)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+    /* Stats row in hero */
+    .stats-row{display:flex;gap:0;margin-top:32px;border:1px solid var(--gold-border);border-radius:var(--rl);overflow:hidden;background:linear-gradient(135deg,rgba(201,162,39,.08),rgba(201,162,39,.03))}
+    .stat-cell{flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(--line)}
+    .stat-cell:last-child{border-right:none}
+    .stat-num{font-family:var(--fd);font-size:2rem;font-weight:900;color:var(--gold);line-height:1;display:block;text-shadow:0 0 20px var(--gold-glow)}
+    .stat-lbl{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-top:4px;display:block}
+
+    /* Hero card */
+    .hero-card{background:linear-gradient(160deg,rgba(30,24,0,.95),rgba(12,10,0,.98));border:1px solid var(--gold-border);border-radius:var(--rxl);overflow:hidden;box-shadow:0 0 60px rgba(201,162,39,.15),0 30px 80px rgba(0,0,0,.6);position:relative}
+    .hero-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-lt),var(--gold),transparent)}
+    /* Gold shimmer on card */
+    .hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(201,162,39,.04) 50%,transparent 60%);animation:card-shimmer 5s ease-in-out infinite;pointer-events:none}
+    @keyframes card-shimmer{0%,100%{transform:translateX(-100%)}50%{transform:translateX(100%)}}
+    .hero-card-top{padding:26px 28px 20px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,rgba(201,162,39,.07),transparent)}
+    .hero-card-top .lbl{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+    .hero-card-top .hl{font-family:var(--fd);font-size:1.4rem;font-weight:900;color:var(--white);line-height:1.15}
+    .hero-card-body{padding:20px 28px 26px}
+    .point-list{display:flex;flex-direction:column;gap:10px}
+    .point{display:flex;align-items:flex-start;gap:13px;padding:13px 15px;border-radius:var(--r);border:1px solid var(--line2);background:rgba(201,162,39,.04);transition:.25s;cursor:default}
+    .point:hover{border-color:var(--gold-border);background:var(--gold-bg2);transform:translateX(4px)}
+    .point-icon{width:34px;height:34px;border-radius:10px;flex:0 0 auto;background:linear-gradient(135deg,rgba(201,162,39,.2),rgba(201,162,39,.05));border:1px solid var(--gold-border);display:grid;place-items:center;font-size:16px}
+    .point b{font-size:13.5px;color:var(--white);display:block;margin-bottom:2px}
+    .point .sub{font-size:12px;color:var(--muted)}
+
+    /* ── TICKER ── */
+    .ticker-wrap{background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-lt),var(--gold),var(--gold-dark));padding:12px 0;overflow:hidden;border-top:1px solid rgba(201,162,39,.3);border-bottom:1px solid rgba(201,162,39,.3)}
+    .ticker-track{display:flex;width:max-content;animation:ticker-scroll 30s linear infinite}
+    .ticker-track:hover{animation-play-state:paused}
+    @keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .ticker-item{display:inline-flex;align-items:center;gap:12px;padding:0 28px;font-size:12.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+    .ticker-sep{color:rgba(10,8,0,.4);font-size:16px}
+
+    /* ── STATS BANNER ── */
+    .dark-banner{background:linear-gradient(135deg,var(--dark2),var(--dark));border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0;position:relative;overflow:hidden}
+    .dark-banner::before{content:"";position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:900px;height:280px;background:radial-gradient(ellipse,rgba(201,162,39,.10),transparent 65%);pointer-events:none}
+    .banner-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+    .banner-cell{padding:20px 24px;text-align:center;border-right:1px solid var(--line);position:relative}
+    .banner-cell:last-child{border-right:none}
+    .banner-num{font-family:var(--fd);font-size:clamp(2.2rem,3.5vw,3.5rem);font-weight:900;color:var(--gold-lt);text-shadow:0 0 30px var(--gold-glow);line-height:1;display:block}
+    .banner-lbl{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-top:7px;display:block}
+    /* Progress bar under each stat */
+    .banner-bar{height:2px;background:var(--line2);border-radius:2px;margin-top:12px;overflow:hidden}
+    .banner-bar-fill{height:100%;background:linear-gradient(90deg,var(--gold-dark),var(--gold-lt));border-radius:2px;width:0;transition:width 1.4s cubic-bezier(.22,.61,.36,1)}
+    .banner-cell.in .banner-bar-fill{width:var(--bar-w,80%)}
+
+    /* ── SERVICES ── */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+    .service-card{padding:30px;border-radius:var(--rl);background:var(--card);border:1px solid var(--line);transition:.3s;position:relative;overflow:hidden;cursor:default}
+    .service-card::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .4s}
+    .service-card:hover{border-color:var(--gold-border);box-shadow:0 0 40px rgba(201,162,39,.10),0 20px 50px rgba(0,0,0,.4);transform:translateY(-6px)}
+    .service-card:hover::after{transform:scaleX(1)}
+    .s-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(201,162,39,.18),rgba(201,162,39,.05));border:1px solid var(--gold-border);display:grid;place-items:center;font-size:24px;margin-bottom:20px;box-shadow:0 4px 16px rgba(201,162,39,.15);transition:.3s}
+    .service-card:hover .s-icon{transform:scale(1.12) rotate(-3deg);box-shadow:0 8px 24px rgba(201,162,39,.25)}
+
+    /* ── LANGUAGES BIG SECTION ── */
+    .lang-section-bg{background:linear-gradient(160deg,var(--dark3) 0%,var(--dark2) 100%);position:relative;overflow:hidden}
+    .lang-section-bg::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 800px 600px at 80% 50%,rgba(201,162,39,.09),transparent 60%);pointer-events:none}
+
+    /* Big flag cards grid */
+    .lang-flags-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:44px}
+    @media(max-width:980px){.lang-flags-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:500px){.lang-flags-grid{grid-template-columns:repeat(2,1fr)}}
+
+    .flag-card{position:relative;padding:28px 18px 24px;border-radius:var(--rl);background:var(--card);border:1px solid var(--line);text-align:center;overflow:hidden;transition:.35s;cursor:default}
+    .flag-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(201,162,39,.12),transparent 65%);opacity:0;transition:.35s}
+    .flag-card:hover{border-color:var(--gold-border);transform:translateY(-8px) scale(1.02);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(201,162,39,.12)}
+    .flag-card:hover::before{opacity:1}
+
+    /* SVG flag wrapper — uses actual country flag SVGs via emoji rendered big */
+    .flag-emoji{font-size:52px;line-height:1;display:block;margin:0 auto 14px;transition:.3s;filter:drop-shadow(0 4px 12px rgba(0,0,0,.4))}
+    .flag-card:hover .flag-emoji{transform:scale(1.12) translateY(-3px);filter:drop-shadow(0 8px 20px rgba(0,0,0,.5))}
+
+    .flag-card-name{font-family:var(--fd);font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:5px;letter-spacing:-.2px}
+    .flag-card-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-top:10px}
+    .flag-tag{padding:3px 8px;border-radius:5px;font-size:10.5px;font-weight:700;background:var(--gold-bg);border:1px solid var(--gold-border2);color:var(--gold-lt);letter-spacing:.2px}
+
+    /* ── CERTS ── */
+    .certs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px}
+    .cert-card{padding:30px 32px;border-radius:var(--rl);background:var(--card);border:1px solid var(--line);transition:.3s;position:relative;overflow:hidden}
+    .cert-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .4s}
+    .cert-card:hover{border-color:var(--gold-border);box-shadow:0 0 30px rgba(201,162,39,.10);transform:translateY(-5px)}
+    .cert-card:hover::after{transform:scaleX(1)}
+    .cert-card .flag-big{font-size:40px;margin-bottom:14px;display:block;transition:.3s}
+    .cert-card:hover .flag-big{transform:scale(1.1) rotate(-5deg)}
+    .cert-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .badge{padding:5px 11px;border-radius:7px;font-size:12px;font-weight:700;background:rgba(201,162,39,.10);border:1px solid var(--gold-border);color:var(--gold-lt);letter-spacing:.2px;transition:.22s;cursor:default}
+    .badge:hover{background:rgba(201,162,39,.20);transform:translateY(-2px)}
+
+    /* ── TESTIMONIALS ── */
+    .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+    .test-card{padding:28px 30px;border-radius:var(--rl);background:var(--card);border:1px solid var(--line);transition:.3s;position:relative;overflow:hidden}
+    .test-card::before{content:"❝";position:absolute;top:16px;right:18px;font-size:3rem;color:rgba(201,162,39,.10);font-family:Georgia,serif;line-height:1;pointer-events:none}
+    .test-card:hover{border-color:var(--gold-border);box-shadow:0 0 40px rgba(201,162,39,.08),0 16px 50px rgba(0,0,0,.4);transform:translateY(-5px)}
+    .test-stars{display:flex;gap:3px;margin-bottom:14px}
+    .test-stars span{color:var(--gold);font-size:15px;display:inline-block;animation:none}
+    .test-card:hover .test-stars span{animation:star-pop .3s ease both}
+    .test-card:hover .test-stars span:nth-child(1){animation-delay:.00s}
+    .test-card:hover .test-stars span:nth-child(2){animation-delay:.06s}
+    .test-card:hover .test-stars span:nth-child(3){animation-delay:.12s}
+    .test-card:hover .test-stars span:nth-child(4){animation-delay:.18s}
+    .test-card:hover .test-stars span:nth-child(5){animation-delay:.24s}
+    @keyframes star-pop{0%{transform:scale(1)}50%{transform:scale(1.4)}100%{transform:scale(1)}}
+    .test-quote{font-size:1rem;color:rgba(245,237,208,.85);line-height:1.7;margin-bottom:18px;font-style:italic;font-family:var(--fd);font-size:1.05rem}
+    .test-author{display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--line2)}
+    .author-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(201,162,39,.3),rgba(201,162,39,.1));border:1px solid var(--gold-border);display:grid;place-items:center;flex:0 0 auto;font-size:15px}
+    .author-n{font-size:13px;font-weight:800;color:var(--white)}
+    .author-m{font-size:11.5px;color:var(--gold)}
+
+    /* ── PRICING ── */
+    .pricing-wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-top:44px}
+    .price-main{padding:36px;border-radius:var(--rxl);background:linear-gradient(160deg,rgba(28,22,0,.98),rgba(10,8,0,.99));border:1px solid var(--gold-border);position:relative;overflow:hidden;box-shadow:0 0 60px rgba(201,162,39,.15),0 30px 80px rgba(0,0,0,.5)}
+    .price-main::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-lt),var(--gold),transparent)}
+    .price-main::after{content:"";position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.15),transparent 65%);pointer-events:none}
+    .price-tag-badge{position:absolute;top:22px;right:22px;background:linear-gradient(135deg,var(--gold-lt),var(--gold));color:var(--ink);font-size:10px;font-weight:900;padding:5px 12px;border-radius:999px;letter-spacing:.8px;text-transform:uppercase;box-shadow:0 4px 14px var(--gold-glow)}
+    .price-kicker{display:inline-flex;align-items:center;gap:8px;background:var(--gold-bg);border:1px solid var(--gold-border2);padding:7px 14px;border-radius:999px;font-size:12px;font-weight:700;color:var(--gold-lt);letter-spacing:.3px;margin-bottom:20px}
+    .price-amount-row{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+    .price-big{font-family:var(--fd);font-size:clamp(3rem,5vw,4.5rem);font-weight:900;color:var(--gold-lt);line-height:1;text-shadow:0 0 30px var(--gold-glow)}
+    .price-currency{font-size:1.2rem;font-weight:800;color:var(--muted)}
+    .price-period{font-size:.95rem;color:var(--muted);font-weight:500}
+    .price-reg{font-size:14px;color:var(--muted);margin-bottom:6px}
+    .price-total{font-size:17px;font-weight:800;color:var(--white);margin-bottom:16px}
+    .price-bonus{display:inline-flex;align-items:center;gap:8px;background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.22);padding:10px 16px;border-radius:var(--r);font-size:14px;font-weight:700;color:var(--gold-lt);margin-bottom:24px}
+    .price-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+    .price-note{font-size:12px;color:var(--muted2);border-top:1px dashed var(--gold-border);padding-top:16px;line-height:1.65}
+    .price-includes{background:var(--card);border:1px solid var(--line);border-radius:var(--rxl);padding:30px 32px}
+    .includes-list{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+    .inc-row{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--off-white);font-weight:500;opacity:0;transform:translateX(-16px);transition:opacity .5s,transform .5s}
+    .inc-row.in{opacity:1;transform:none}
+    .inc-check{width:22px;height:22px;border-radius:7px;flex:0 0 auto;background:linear-gradient(135deg,rgba(201,162,39,.25),rgba(201,162,39,.08));border:1px solid var(--gold-border);display:grid;place-items:center;font-size:11px;color:var(--gold-lt)}
+
+    /* ── APPLY ── */
+    .apply-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px}
+    .apply-card{padding:34px 36px;border-radius:var(--rxl);background:var(--card);border:1px solid var(--line);transition:.3s;position:relative;overflow:hidden}
+    .apply-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .4s}
+    .apply-card:hover{border-color:var(--gold-border);box-shadow:0 0 40px rgba(201,162,39,.10);transform:translateY(-5px)}
+    .apply-card:hover::after{transform:scaleX(1)}
+    .apply-icon{font-size:40px;margin-bottom:18px;display:block;transition:.3s}
+    .apply-card:hover .apply-icon{transform:scale(1.15) rotate(-5deg)}
+
+    /* ── FAQ ── */
+    .faq-list{display:flex;flex-direction:column;gap:10px;margin-top:44px}
+    .faq-item{border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden;transition:.25s}
+    .faq-item:hover,.faq-item.open{border-color:var(--gold-border)}
+    .faq-q{padding:20px 24px;font-weight:700;font-size:15px;color:var(--white);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none;transition:.18s}
+    .faq-q:hover{background:var(--gold-bg2)}
+    .faq-arrow{width:26px;height:26px;border-radius:8px;background:var(--gold-bg);border:1px solid var(--gold-border);display:grid;place-items:center;color:var(--gold);font-size:12px;flex:0 0 auto;transition:transform .3s,background .2s}
+    .faq-item.open .faq-arrow{transform:rotate(180deg);background:rgba(201,162,39,.18)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s;font-size:14.5px;color:var(--muted);line-height:1.75;padding:0 24px}
+    .faq-item.open .faq-a{max-height:200px;padding:0 24px 20px}
+
+    /* ── CONTACT ── */
+    .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+    .contact-card{padding:30px;border-radius:var(--rl);background:var(--card);border:1px solid var(--line);text-align:center;transition:.3s;position:relative;overflow:hidden}
+    .contact-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(201,162,39,.08),transparent 60%);opacity:0;transition:.3s}
+    .contact-card:hover{border-color:var(--gold-border);box-shadow:0 0 40px rgba(201,162,39,.10);transform:translateY(-5px)}
+    .contact-card:hover::before{opacity:1}
+    .c-icon{width:56px;height:56px;border-radius:17px;background:linear-gradient(135deg,rgba(201,162,39,.18),rgba(201,162,39,.05));border:1px solid var(--gold-border);display:grid;place-items:center;margin:0 auto 16px;font-size:24px;box-shadow:0 4px 16px rgba(201,162,39,.12);transition:.3s}
+    .contact-card:hover .c-icon{transform:scale(1.1) rotate(-5deg);box-shadow:0 8px 28px rgba(201,162,39,.25)}
+    .contact-card h3{margin-bottom:6px}
+    .contact-card p{font-size:14px;margin-bottom:18px}
+
+    /* ── CTA STRIP ── */
+    .cta-strip{background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-lt),var(--gold),var(--gold-dark));padding:72px 0;text-align:center;position:relative;overflow:hidden}
+    .cta-strip::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.04) 0,rgba(0,0,0,.04) 1px,transparent 1px,transparent 32px)}
+    /* animated glow ball */
+    .cta-strip::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.12),transparent 65%);animation:cta-pulse 3s ease-in-out infinite}
+    @keyframes cta-pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.15)}}
+    .cta-strip h2{font-size:clamp(2rem,4vw,3.2rem);color:var(--ink);letter-spacing:-1px;margin-bottom:12px;position:relative;z-index:1}
+    .cta-strip p{color:rgba(10,8,0,.65);margin-bottom:28px;font-size:1.05rem;position:relative;z-index:1}
+    .cta-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;position:relative;z-index:1}
+    .btn-dark-inv{background:var(--ink);color:var(--gold-lt);border:none;padding:14px 28px;font-size:15px;font-weight:800;border-radius:var(--r);display:inline-flex;align-items:center;gap:8px;transition:.22s;cursor:pointer;font-family:var(--fb)}
+    .btn-dark-inv:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.35)}
+
+    /* ── FOOTER ── */
+    footer{padding:44px 0 52px;border-top:1px solid var(--line);background:rgba(5,4,0,.8)}
+    .foot{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+    .foot-logo{font-family:var(--fd);font-size:20px;font-weight:900;color:var(--gold);text-shadow:0 0 20px var(--gold-glow)}
+    .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+    .foot-links a{font-size:13px;color:var(--muted2);transition:.18s;font-weight:500}
+    .foot-links a:hover{color:var(--gold)}
+    .foot-tagline{font-size:12px;color:var(--muted2)}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-card{display:none}
+      .services-grid,.test-grid{grid-template-columns:1fr 1fr}
+      .banner-grid{grid-template-columns:repeat(2,1fr)}
+      .banner-cell{border-bottom:1px solid var(--line)}
+      .certs-grid,.pricing-wrap,.apply-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      nav{display:none}
+    }
+    @media(max-width:600px){
+      .services-grid,.test-grid{grid-template-columns:1fr}
+      section{padding:64px 0}
+      .hero{padding:64px 0 48px}
+      .price-main{padding:28px 24px}
+    }
+    [dir="rtl"] .eyebrow::before{background:linear-gradient(270deg,transparent,var(--gold))}
+    [dir="rtl"] .eyebrow::after{background:linear-gradient(270deg,var(--gold),transparent)}
+    [dir="rtl"] .point:hover{transform:translateX(-4px)}
+  </style>
+</head>
+<body>
+  <div id="particles"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header id="hdr">
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo-badge"><span>EX</span></div>
+        <div class="brand-text">
+          <b>EXLang</b>
+          <small data-i="brandSub">Excellence Language Academy</small>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#services" data-i="navServices">Services</a>
+        <a href="#languages" data-i="navLangs">Languages</a>
+        <a href="#certs" data-i="navCerts">Certificates</a>
+        <a href="#offer" data-i="navOffer">Offer</a>
+        <a href="#apply" data-i="navApply">Apply</a>
+        <a href="#contact" data-i="navContact">Contact</a>
+      </nav>
+      <div class="right">
+        <div class="lang" aria-label="Language">
+          <button id="btnEN" class="active" type="button">EN</button>
+          <button id="btnFR" type="button">FR</button>
+          <button id="btnAR" type="button">AR</button>
+        </div>
+        <a class="btn primary" href="#apply" data-i="ctaTop">Apply Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-bg-orb o1"></div>
+        <div class="hero-bg-orb o2"></div>
+        <div class="hero-ring r1"></div>
+        <div class="hero-ring r2"></div>
+        <div class="hero-ring r3"></div>
+      </div>
+      <div class="wrap hero-grid">
+        <!-- LEFT -->
+        <div>
+          <div class="live-badge" data-anim="up" data-delay="1">
+            <span class="live-dot"></span><span data-i="heroBadge">Now enrolling — limited spots</span>
+          </div>
+          <h1>
+            <span class="hero-word" style="animation-delay:.1s" data-i="heroTitle1">Any language.</span><br>
+            <em>
+              <span class="hero-word" style="animation-delay:.25s" data-i="heroTitle2">One mission:</span><br>
+              <span class="hero-word" style="animation-delay:.40s" data-i="heroTitle3">YOU.</span>
+            </em>
+          </h1>
+          <p class="lead" style="margin-top:20px" data-anim="up" data-delay="2" data-i="heroDesc">Build real fluency with a premium experience — speaking confidence, structured progress, and international exam prep when you need it.</p>
+          <div class="flags-strip" data-anim="up" data-delay="2">
+            <span class="lbl" data-i="flagsLabel">We teach:</span>
+            <div class="flag-pill">🇬🇧 English</div>
+            <div class="flag-pill">🇫🇷 French</div>
+            <div class="flag-pill">🇪🇸 Spanish</div>
+            <div class="flag-pill">🇩🇪 German</div>
+            <div class="flag-pill">🇮🇹 Italian</div>
+            <div class="flag-pill">🇰🇷 Korean</div>
+          </div>
+          <div class="hero-actions" data-anim="up" data-delay="3">
+            <a class="btn primary" href="#apply" data-i="heroBtn1">Apply for a Program</a>
+            <a class="btn outline" href="https://wa.me/212669699633?text=Salam%20EXLang%20%F0%9F%91%8B%20I%20want%20to%20join%20a%20program." target="_blank" rel="noopener" data-i="heroBtn2">💬 WhatsApp Us</a>
+          </div>
+          <div class="stats-row" data-anim="up" data-delay="4">
+            <div class="stat-cell">
+              <span class="stat-num" data-counter="500" data-suffix="+">0</span>
+              <span class="stat-lbl" data-i="statStudents">Students</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-num" data-counter="92" data-suffix="%">0</span>
+              <span class="stat-lbl" data-i="statPass">Pass Rate</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-num" data-counter="6" data-suffix="">0</span>
+              <span class="stat-lbl" data-i="statLangs">Languages</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-num" data-counter="100" data-suffix="%">0</span>
+              <span class="stat-lbl" data-i="statOnline">Online</span>
+            </div>
+          </div>
+        </div>
+        <!-- RIGHT: CARD -->
+        <div class="hero-card" data-anim="right" data-delay="2">
+          <div class="hero-card-top">
+            <div class="lbl" data-i="cardLabel">Your Roadmap</div>
+            <div class="hl" data-i="cardHeadline">What you get from day one.</div>
+          </div>
+          <div class="hero-card-body">
+            <div class="point-list">
+              <div class="point"><div class="point-icon">🎯</div><div><b data-i="p1T">Level Check</b><div class="sub" data-i="p1D">Placement + clear next steps.</div></div></div>
+              <div class="point"><div class="point-icon">🗣️</div><div><b data-i="p2T">Confidence Training</b><div class="sub" data-i="p2D">Speak naturally, not "textbook".</div></div></div>
+              <div class="point"><div class="point-icon">📊</div><div><b data-i="p3T">Exam Strategy</b><div class="sub" data-i="p3D">Mocks + targeted feedback.</div></div></div>
+              <div class="point"><div class="point-icon">📈</div><div><b data-i="p4T">Progress Tracking</b><div class="sub" data-i="p4D">Stay on track, every week.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TICKER ===== -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="ticker-item">IELTS <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">TOEFL <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">TOEIC <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">Cambridge B2 / C1 / C2 <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">DELF · DALF <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">TCF · TEF <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">🇬🇧 English <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">🇫🇷 French <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">🇪🇸 Spanish <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">🇩🇪 German <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">🇮🇹 Italian <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">🇰🇷 Korean <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">IELTS <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">TOEFL <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">TOEIC <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">Cambridge B2 / C1 / C2 <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">DELF · DALF <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">TCF · TEF <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">🇬🇧 English <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">🇫🇷 French <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">🇪🇸 Spanish <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">🇩🇪 German <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">🇮🇹 Italian <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">🇰🇷 Korean <span class="ticker-sep">✦</span></span>
+      </div>
+    </div>
+
+    <!-- ===== STATS BANNER ===== -->
+    <div class="dark-banner">
+      <div class="wrap">
+        <div class="banner-grid">
+          <div class="banner-cell" data-anim="up" data-delay="1" data-bar="90">
+            <span class="banner-num" data-counter="500" data-suffix="+">0</span>
+            <span class="banner-lbl" data-i="bn1">Students trained</span>
+            <div class="banner-bar"><div class="banner-bar-fill" style="--bar-w:90%"></div></div>
+          </div>
+          <div class="banner-cell" data-anim="up" data-delay="2" data-bar="92">
+            <span class="banner-num" data-counter="92" data-suffix="%">0</span>
+            <span class="banner-lbl" data-i="bn2">Exam pass rate</span>
+            <div class="banner-bar"><div class="banner-bar-fill" style="--bar-w:92%"></div></div>
+          </div>
+          <div class="banner-cell" data-anim="up" data-delay="3" data-bar="80">
+            <span class="banner-num" data-counter="8" data-suffix="">0</span>
+            <span class="banner-lbl" data-i="bn3">Certifications covered</span>
+            <div class="banner-bar"><div class="banner-bar-fill" style="--bar-w:80%"></div></div>
+          </div>
+          <div class="banner-cell" data-anim="up" data-delay="4" data-bar="100">
+            <span class="banner-num" data-counter="6" data-suffix="">0</span>
+            <span class="banner-lbl" data-i="bn4">Languages taught</span>
+            <div class="banner-bar"><div class="banner-bar-fill" style="--bar-w:100%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services">
+      <div class="wrap">
+        <div data-anim="up">
+          <div class="eyebrow" data-i="servEye">What we offer</div>
+          <h2 data-i="servTitle">Built around your goal.</h2>
+          <p style="margin-top:12px" data-i="servDesc">Simple, focused programs — choose what fits your target.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card" data-anim="scale-up" data-delay="1">
+            <div class="s-icon">🗣️</div>
+            <h3 data-i="s1T">Fluency & Speaking</h3>
+            <p data-i="s1D">Real-life practice, pronunciation, and daily communication confidence.</p>
+          </div>
+          <div class="service-card" data-anim="scale-up" data-delay="2">
+            <div class="s-icon">📝</div>
+            <h3 data-i="s2T">International Exam Prep</h3>
+            <p data-i="s2D">Proven strategies, mock tests, writing feedback, and targeted score improvement.</p>
+          </div>
+          <div class="service-card" data-anim="scale-up" data-delay="3">
+            <div class="s-icon">⭐</div>
+            <h3 data-i="s3T">Premium 1-on-1 Coaching</h3>
+            <p data-i="s3D">Personal roadmap, faster results, accountability, and direct feedback every session.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LANGUAGES (BIG FLAGS) ===== -->
+    <section id="languages" class="lang-section-bg">
+      <div class="wrap">
+        <div data-anim="up">
+          <div class="eyebrow" data-i="langEye">6 languages</div>
+          <h2 data-i="langTitle">Your language. <em style="font-style:italic;color:var(--gold)">Your choice.</em></h2>
+          <p style="margin-top:12px" data-i="langDesc">World-class instruction across the 6 most in-demand languages — all levels welcome.</p>
+        </div>
+        <div class="lang-flags-grid">
+          <!-- ENGLISH -->
+          <div class="flag-card" data-anim="scale-up" data-delay="1">
+            <span class="flag-emoji">🇬🇧</span>
+            <div class="flag-card-name" data-i="l1N">English</div>
+            <div class="flag-card-tags">
+              <span class="flag-tag">IELTS</span>
+              <span class="flag-tag">TOEFL</span>
+              <span class="flag-tag">TOEIC</span>
+              <span class="flag-tag">Cambridge</span>
+            </div>
+          </div>
+          <!-- FRENCH -->
+          <div class="flag-card" data-anim="scale-up" data-delay="2">
+            <span class="flag-emoji">🇫🇷</span>
+            <div class="flag-card-name" data-i="l2N">French</div>
+            <div class="flag-card-tags">
+              <span class="flag-tag">DELF</span>
+              <span class="flag-tag">DALF</span>
+              <span class="flag-tag">TCF</span>
+              <span class="flag-tag">TEF</span>
+            </div>
+          </div>
+          <!-- SPANISH -->
+          <div class="flag-card" data-anim="scale-up" data-delay="3">
+            <span class="flag-emoji">🇪🇸</span>
+            <div class="flag-card-name" data-i="l3N">Spanish</div>
+            <div class="flag-card-tags">
+              <span class="flag-tag">A1–C2</span>
+              <span class="flag-tag">DELE</span>
+            </div>
+          </div>
+          <!-- GERMAN -->
+          <div class="flag-card" data-anim="scale-up" data-delay="4">
+            <span class="flag-emoji">🇩🇪</span>
+            <div class="flag-card-name" data-i="l4N">German</div>
+            <div class="flag-card-tags">
+              <span class="flag-tag">A1–C2</span>
+              <span class="flag-tag">Goethe</span>
+            </div>
+          </div>
+          <!-- ITALIAN -->
+          <div class="flag-card" data-anim="scale-up" data-delay="5">
+            <span class="flag-emoji">🇮🇹</span>
+            <div class="flag-card-name" data-i="l5N">Italian</div>
+            <div class="flag-card-tags">
+              <span class="flag-tag">A1–C2</span>
+              <span class="flag-tag">CILS</span>
+            </div>
+          </div>
+          <!-- KOREAN -->
+          <div class="flag-card" data-anim="scale-up" data-delay="6">
+            <span class="flag-emoji">🇰🇷</span>
+            <div class="flag-card-name" data-i="l6N">Korean</div>
+            <div class="flag-card-tags">
+              <span class="flag-tag">A1–C2</span>
+              <span class="flag-tag">TOPIK</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATES ===== -->
+    <section id="certs">
+      <div class="wrap">
+        <div data-anim="up">
+          <div class="eyebrow" data-i="certEye">Exam preparation</div>
+          <h2 data-i="certTitle">International Certificates.</h2>
+          <p style="margin-top:12px" data-i="certDesc">The most-requested certifications, taught by specialists.</p>
+        </div>
+        <div class="certs-grid">
+          <div class="cert-card" data-anim="left">
+            <div class="flag-big">🇬🇧</div>
+            <h3 data-i="certEN">English Exams</h3>
+            <p data-i="certENDesc">Comprehensive prep for all major English proficiency certifications.</p>
+            <div class="cert-badges">
+              <span class="badge">IELTS Academic</span><span class="badge">IELTS General</span>
+              <span class="badge">TOEFL iBT</span><span class="badge">TOEIC</span>
+              <span class="badge">Cambridge B2</span><span class="badge">Cambridge C1</span><span class="badge">Cambridge C2</span>
+            </div>
+          </div>
+          <div class="cert-card" data-anim="right">
+            <div class="flag-big">🇫🇷</div>
+            <h3 data-i="certFR">French Exams</h3>
+            <p data-i="certFRDesc">Expert guidance for all official French language certifications.</p>
+            <div class="cert-badges">
+              <span class="badge">DELF A1</span><span class="badge">DELF A2</span>
+              <span class="badge">DELF B1</span><span class="badge">DELF B2</span>
+              <span class="badge">DALF C1</span><span class="badge">DALF C2</span>
+              <span class="badge">TCF</span><span class="badge">TEF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" style="background:linear-gradient(160deg,var(--dark2),var(--dark))">
+      <div class="wrap">
+        <div data-anim="up" style="text-align:center;max-width:520px;margin:0 auto">
+          <div class="eyebrow" data-i="testEye">Student results</div>
+          <h2 data-i="testTitle">Real students. Real results.</h2>
+        </div>
+        <div class="test-grid">
+          <div class="test-card" data-anim="flip" data-delay="1">
+            <div class="test-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="test-quote" data-i="t1Q">"I passed IELTS with Band 7.5 in just 3 months. The exam strategies were laser-focused."</p>
+            <div class="test-author"><div class="author-av">👤</div><div><div class="author-n" data-i="t1N">Yasmine B.</div><div class="author-m" data-i="t1M">IELTS Academic — Band 7.5</div></div></div>
+          </div>
+          <div class="test-card" data-anim="flip" data-delay="2">
+            <div class="test-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="test-quote" data-i="t2Q">"My speaking confidence transformed completely. I now present in English at work without hesitation."</p>
+            <div class="test-author"><div class="author-av">👤</div><div><div class="author-n" data-i="t2N">Karim A.</div><div class="author-m" data-i="t2M">1-on-1 Coaching Program</div></div></div>
+          </div>
+          <div class="test-card" data-anim="flip" data-delay="3">
+            <div class="test-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="test-quote" data-i="t3Q">"Obtained DALF C1 on the first try. The structured program and mock exams made all the difference."</p>
+            <div class="test-author"><div class="author-av">👤</div><div><div class="author-n" data-i="t3N">Sara M.</div><div class="author-m" data-i="t3M">DALF C1 — First attempt</div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section id="offer">
+      <div class="wrap">
+        <div data-anim="up">
+          <div class="eyebrow" data-i="offEye">Special Offer</div>
+          <h2 data-i="offTitle">Clear price. Serious value.</h2>
+          <p style="margin-top:12px" data-i="offDesc">One offer — no hidden fees, no confusion. Just exceptional learning.</p>
+        </div>
+        <div class="pricing-wrap">
+          <div class="price-main" data-anim="left">
+            <div class="price-tag-badge" data-i="offBadge">Best Value</div>
+            <div class="price-kicker" data-i="offKicker">⏳ Limited-time enrollment</div>
+            <div class="price-amount-row">
+              <span class="price-big">1000</span>
+              <span class="price-currency">DHS</span>
+              <span class="price-period" data-i="offPer">/ 6 months</span>
+            </div>
+            <p class="price-reg" data-i="offReg">+ 150 DHS one-time registration fee</p>
+            <p class="price-total" data-i="offTotal">Total: 1,150 DHS</p>
+            <div class="price-bonus">🎁 <span data-i="offBonus">Ramadan month included free</span></div>
+            <div class="price-actions">
+              <a class="btn primary" href="#apply" data-i="offBtn1">Apply Now</a>
+              <a class="btn outline" target="_blank" rel="noopener" href="https://wa.me/212669699633?text=Salam%20EXLang%20%F0%9F%91%8B%20I%20want%20to%20know%20more%20about%20the%206-month%20offer." data-i="offBtn2">Ask on WhatsApp</a>
+            </div>
+            <p class="price-note" data-i="offNote">Registration fee covers onboarding, level assessment, student file setup, and program allocation.</p>
+          </div>
+          <div class="price-includes" data-anim="right">
+            <div class="eyebrow" data-i="incEye">Included</div>
+            <h3 data-i="incTitle">Everything you need.</h3>
+            <div class="includes-list" id="inc-list">
+              <div class="inc-row"><div class="inc-check">✓</div><span data-i="inc1">Level evaluation & placement</span></div>
+              <div class="inc-row"><div class="inc-check">✓</div><span data-i="inc2">Structured weekly sessions</span></div>
+              <div class="inc-row"><div class="inc-check">✓</div><span data-i="inc3">Progress tracking & reports</span></div>
+              <div class="inc-row"><div class="inc-check">✓</div><span data-i="inc4">Exam strategy support</span></div>
+              <div class="inc-row"><div class="inc-check">✓</div><span data-i="inc5">Mock tests with feedback</span></div>
+              <div class="inc-row"><div class="inc-check">✓</div><span data-i="inc6">WhatsApp support between sessions</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== APPLY ===== -->
+    <section id="apply" style="background:linear-gradient(160deg,var(--dark3),var(--dark2))">
+      <div class="wrap">
+        <div data-anim="up">
+          <div class="eyebrow" data-i="appEye">Get started</div>
+          <h2 data-i="appTitle">Apply in minutes.</h2>
+          <p style="margin-top:12px" data-i="appDesc">Choose the right form. We'll contact you on WhatsApp after submission.</p>
+        </div>
+        <div class="apply-grid">
+          <div class="apply-card" data-anim="left">
+            <span class="apply-icon">📜</span>
+            <h3 data-i="a1T">Certificate Preparation</h3>
+            <p data-i="a1D">IELTS • TOEFL • TOEIC • Cambridge • DELF/DALF • TCF • TEF</p>
+            <div style="margin-top:22px"><a class="btn primary" href="https://forms.gle/PeVEKx6G4QTq4XRx7" target="_blank" rel="noopener" data-i="a1Btn">Open Application →</a></div>
+          </div>
+          <div class="apply-card" data-anim="right">
+            <span class="apply-icon">🎓</span>
+            <h3 data-i="a2T">Free Trial Session</h3>
+            <p data-i="a2D">Short evaluation + orientation to place you in the right program. Completely free.</p>
+            <div style="margin-top:22px"><a class="btn primary" href="https://forms.gle/BCnJSyjpdbDpYt8j6" target="_blank" rel="noopener" data-i="a2Btn">Book Free Session →</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq">
+      <div class="wrap">
+        <div data-anim="up">
+          <div class="eyebrow" data-i="faqEye">Questions</div>
+          <h2 data-i="faqTitle">Frequently asked.</h2>
+        </div>
+        <div class="faq-list" data-anim="up">
+          <div class="faq-item"><div class="faq-q" tabindex="0"><span data-i="fq1">Are sessions online or in-person?</span><span class="faq-arrow">▾</span></div><div class="faq-a" data-i="fa1">All sessions are fully online via video call — accessible from anywhere in the world. You just need a stable internet connection.</div></div>
+          <div class="faq-item"><div class="faq-q" tabindex="0"><span data-i="fq2">How long are the sessions?</span><span class="faq-arrow">▾</span></div><div class="faq-a" data-i="fa2">Standard sessions are 60 minutes. Premium 1-on-1 sessions can be extended based on your plan.</div></div>
+          <div class="faq-item"><div class="faq-q" tabindex="0"><span data-i="fq3">What if I'm a complete beginner?</span><span class="faq-arrow">▾</span></div><div class="faq-a" data-i="fa3">No problem. We accept all levels. Your free trial includes a placement assessment so we design the right program from day one.</div></div>
+          <div class="faq-item"><div class="faq-q" tabindex="0"><span data-i="fq4">What does the registration fee cover?</span><span class="faq-arrow">▾</span></div><div class="faq-a" data-i="fa4">The 150 DHS fee covers onboarding, level assessment, student file setup, and program allocation — a one-time cost for the full 6 months.</div></div>
+          <div class="faq-item"><div class="faq-q" tabindex="0"><span data-i="fq5">Which languages can I learn?</span><span class="faq-arrow">▾</span></div><div class="faq-a" data-i="fa5">We teach 6 languages: English, French, Spanish, German, Italian, and Korean — each with dedicated programs and experienced instructors.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA STRIP ===== -->
+    <div class="cta-strip" data-anim="scale">
+      <h2 data-i="ctaTitle">Your journey to fluency starts now.</h2>
+      <p data-i="ctaDesc">Limited spots available. Don't wait — apply today or message us on WhatsApp.</p>
+      <div class="cta-actions">
+        <a class="btn-dark-inv" href="#apply" data-i="ctaBtn1">Apply Now</a>
+        <a class="btn-dark-inv" href="https://wa.me/212669699633?text=Salam%20EXLang%20%F0%9F%91%8B%20I%20want%20to%20join%20a%20program." target="_blank" rel="noopener" data-i="ctaBtn2">💬 Message on WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+      <div class="wrap">
+        <div data-anim="up">
+          <div class="eyebrow" data-i="conEye">Reach us</div>
+          <h2 data-i="conTitle">Get in touch.</h2>
+          <p style="margin-top:12px" data-i="conDesc">Fastest reply on WhatsApp — usually within a few hours.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card" data-anim="up" data-delay="1">
+            <div class="c-icon">💬</div>
+            <h3 data-i="waT">WhatsApp</h3>
+            <p><b style="color:var(--white)">+212 669 699 633</b></p>
+            <a class="btn primary" target="_blank" rel="noopener" href="https://wa.me/212669699633?text=Salam%20EXLang%20%F0%9F%91%8B%20I%20want%20to%20join%20a%20program." data-i="waBtn">Message Us</a>
+          </div>
+          <div class="contact-card" data-anim="up" data-delay="2">
+            <div class="c-icon">📸</div>
+            <h3 data-i="igT">Instagram</h3>
+            <p>@exlang.official</p>
+            <a class="btn outline" target="_blank" rel="noopener" href="https://www.instagram.com/exlang.official/" data-i="igBtn">Open Instagram</a>
+          </div>
+          <div class="contact-card" data-anim="up" data-delay="3">
+            <div class="c-icon">✉️</div>
+            <h3 data-i="mlT">Email</h3>
+            <p>exlang.academy@gmail.com</p>
+            <a class="btn outline" href="mailto:exlang.academy@gmail.com" data-i="mlBtn">Send Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <div class="foot-logo">EXLang</div>
+        <div class="foot-tagline" style="margin-top:5px">© <span id="yr"></span> <span data-i="brandSub">Excellence Language Academy</span></div>
+      </div>
+      <div class="foot-links">
+        <a href="#services" data-i="navServices">Services</a>
+        <a href="#languages" data-i="navLangs">Languages</a>
+        <a href="#certs" data-i="navCerts">Certificates</a>
+        <a href="#offer" data-i="navOffer">Offer</a>
+        <a href="#apply" data-i="navApply">Apply</a>
+        <a href="#contact" data-i="navContact">Contact</a>
+      </div>
+      <div class="foot-tagline" data-i="footLine">Morocco → The World 🌍</div>
+    </div>
+  </footer>
+
+  <script>
+  // ─── YEAR ───
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // ─── HEADER SCROLL ───
+  const hdr = document.getElementById("hdr");
+  window.addEventListener("scroll", () => hdr.classList.toggle("scrolled", scrollY > 16), {passive:true});
+
+  // ─── PARTICLES ───
+  (function spawnParticles(){
+    const container = document.getElementById("particles");
+    const count = 28;
+    for(let i=0; i<count; i++){
+      const pt = document.createElement("div");
+      pt.className = "pt";
+      const size = Math.random()*3 + 1;
+      const left = Math.random()*100;
+      const dur  = Math.random()*20 + 14;
+      const delay= Math.random()*20;
+      pt.style.cssText = `width:${size}px;height:${size}px;left:${left}%;bottom:${Math.random()*20-5}%;
+        animation-duration:${dur}s;animation-delay:-${delay}s;
+        opacity:0;background:rgba(201,162,39,${Math.random()*.6+.2})`;
+      container.appendChild(pt);
+    }
+  })();
+
+  // ─── SCROLL ANIMATION ENGINE ───
+  const animEls = document.querySelectorAll("[data-anim]");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add("in");
+        // trigger bar fills & counters
+        e.target.querySelectorAll(".banner-bar-fill").forEach(b => b.style.width = b.parentElement.style.getPropertyValue("--bar-w") || "80%");
+        triggerCounters(e.target);
+        // stagger children if grid
+        const children = e.target.querySelectorAll(".inc-row");
+        children.forEach((c, idx) => {
+          setTimeout(() => c.classList.add("in"), 120 * idx);
+        });
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.12});
+
+  animEls.forEach(el => {
+    io.observe(el);
+    // Also observe banner cells directly for bar fills
+    if(el.classList.contains("banner-cell") || el.closest(".banner-grid")){
+      // handled by parent
+    }
+  });
+
+  // Observe banner cells specifically for bar + counter
+  document.querySelectorAll(".banner-cell").forEach(cell => {
+    const cellIo = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add("in");
+          const fill = e.target.querySelector(".banner-bar-fill");
+          if(fill) fill.style.width = fill.style.getPropertyValue("--bar-w") || "80%";
+          triggerCounters(e.target);
+          cellIo.unobserve(e.target);
+        }
+      });
+    }, {threshold:.5});
+    cellIo.observe(cell);
+  });
+
+  // Observe includes list for stagger
+  const incList = document.getElementById("inc-list");
+  if(incList){
+    const incIo = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.querySelectorAll(".inc-row").forEach((r, i) => {
+            setTimeout(() => r.classList.add("in"), 120 * i);
+          });
+          incIo.unobserve(e.target);
+        }
+      });
+    }, {threshold:.2});
+    incIo.observe(incList);
+  }
+
+  // ─── COUNTER ANIMATION ───
+  function triggerCounters(root){
+    (root.querySelectorAll ? root.querySelectorAll("[data-counter]") : []).forEach(el => {
+      if(el.dataset.counted) return;
+      el.dataset.counted = "1";
+      const target = parseInt(el.dataset.counter);
+      const suffix = el.dataset.suffix || "";
+      const dur = 1600;
+      const start = performance.now();
+      function tick(now){
+        const t = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - t, 4);
+        el.textContent = Math.round(ease * target) + suffix;
+        if(t < 1) requestAnimationFrame(tick);
+        else el.textContent = target + suffix;
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+  // Also trigger hero counters on load
+  setTimeout(() => triggerCounters(document.querySelector(".stats-row") || document), 600);
+
+  // ─── HERO PARALLAX ───
+  window.addEventListener("scroll", () => {
+    const y = scrollY;
+    const orbs = document.querySelectorAll(".hero-bg-orb");
+    orbs.forEach((o, i) => { o.style.transform = `translateY(${y * (i===0 ? .18 : .10)}px)`; });
+    const rings = document.querySelectorAll(".hero-ring");
+    rings.forEach((r, i) => { r.style.transform = `translateY(${y * (.06 + i*.04)}px)`; });
+  }, {passive:true});
+
+  // ─── FAQ ───
+  document.querySelectorAll(".faq-q").forEach(q => {
+    const toggle = () => {
+      const item = q.closest(".faq-item");
+      const open = item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("open"));
+      if(!open) item.classList.add("open");
+    };
+    q.addEventListener("click", toggle);
+    q.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle();} });
+  });
+
+  // ─── TRANSLATIONS ───
+  const T = {
+    en:{
+      brandSub:"Excellence Language Academy",
+      navServices:"Services",navLangs:"Languages",navCerts:"Certificates",navOffer:"Offer",navApply:"Apply",navContact:"Contact",
+      ctaTop:"Apply Now",
+      heroBadge:"Now enrolling — limited spots",
+      heroTitle1:"Any language.",heroTitle2:"One mission:",heroTitle3:"YOU.",
+      heroDesc:"Build real fluency with a premium experience — speaking confidence, structured progress, and international exam prep when you need it.",
+      heroBtn1:"Apply for a Program",heroBtn2:"💬 WhatsApp Us",
+      flagsLabel:"We teach:",
+      cardLabel:"Your Roadmap",cardHeadline:"What you get from day one.",
+      p1T:"Level Check",p1D:"Placement + clear next steps.",
+      p2T:"Confidence Training",p2D:"Speak naturally, not \"textbook\".",
+      p3T:"Exam Strategy",p3D:"Mocks + targeted feedback.",
+      p4T:"Progress Tracking",p4D:"Stay on track, every week.",
+      statStudents:"Students",statPass:"Pass Rate",statLangs:"Languages",statOnline:"Online",
+      bn1:"Students trained",bn2:"Exam pass rate",bn3:"Certifications covered",bn4:"Languages taught",
+      servEye:"What we offer",servTitle:"Built around your goal.",servDesc:"Simple, focused programs — choose what fits your target.",
+      s1T:"Fluency & Speaking",s1D:"Real-life practice, pronunciation, and daily communication confidence.",
+      s2T:"International Exam Prep",s2D:"Proven strategies, mock tests, writing feedback, and targeted score improvement.",
+      s3T:"Premium 1-on-1 Coaching",s3D:"Personal roadmap, faster results, accountability, and direct feedback every session.",
+      langEye:"6 languages",langTitle:"Your language.",langDesc:"World-class instruction across the 6 most in-demand languages — all levels welcome.",
+      l1N:"English",l2N:"French",l3N:"Spanish",l4N:"German",l5N:"Italian",l6N:"Korean",
+      certEye:"Exam preparation",certTitle:"International Certificates.",certDesc:"The most-requested certifications, taught by specialists.",
+      certEN:"English Exams",certENDesc:"Comprehensive prep for all major English proficiency certifications.",
+      certFR:"French Exams",certFRDesc:"Expert guidance for all official French language certifications.",
+      testEye:"Student results",testTitle:"Real students. Real results.",
+      t1Q:'"I passed IELTS with Band 7.5 in just 3 months. The exam strategies were laser-focused."',t1N:"Yasmine B.",t1M:"IELTS Academic — Band 7.5",
+      t2Q:'"My speaking confidence transformed completely. I now present in English at work without hesitation."',t2N:"Karim A.",t2M:"1-on-1 Coaching Program",
+      t3Q:'"Obtained DALF C1 on the first try. The structured program and mock exams made all the difference."',t3N:"Sara M.",t3M:"DALF C1 — First attempt",
+      offEye:"Special Offer",offTitle:"Clear price. Serious value.",offDesc:"One offer — no hidden fees, no confusion.",
+      offBadge:"Best Value",offKicker:"⏳ Limited-time enrollment",offPer:"/ 6 months",offReg:"+ 150 DHS one-time registration fee",offTotal:"Total: 1,150 DHS",
+      offBonus:"Ramadan month included free",offBtn1:"Apply Now",offBtn2:"Ask on WhatsApp",offNote:"Registration fee covers onboarding, level assessment, student file setup, and program allocation.",
+      incEye:"Included",incTitle:"Everything you need.",
+      inc1:"Level evaluation & placement",inc2:"Structured weekly sessions",inc3:"Progress tracking & reports",
+      inc4:"Exam strategy support",inc5:"Mock tests with feedback",inc6:"WhatsApp support between sessions",
+      appEye:"Get started",appTitle:"Apply in minutes.",appDesc:"Choose the right form. We'll contact you on WhatsApp after submission.",
+      a1T:"Certificate Preparation",a1D:"IELTS • TOEFL • TOEIC • Cambridge • DELF/DALF • TCF • TEF",a1Btn:"Open Application →",
+      a2T:"Free Trial Session",a2D:"Short evaluation + orientation to place you in the right program. Completely free.",a2Btn:"Book Free Session →",
+      faqEye:"Questions",faqTitle:"Frequently asked.",
+      fq1:"Are sessions online or in-person?",fa1:"All sessions are fully online via video call — accessible from anywhere in the world.",
+      fq2:"How long are the sessions?",fa2:"Standard sessions are 60 minutes. Premium 1-on-1 sessions can be extended based on your plan.",
+      fq3:"What if I'm a complete beginner?",fa3:"No problem. We accept all levels. Your free trial includes a placement assessment so we design the right program from day one.",
+      fq4:"What does the registration fee cover?",fa4:"The 150 DHS fee covers onboarding, level assessment, student file setup, and program allocation — a one-time cost for the full 6 months.",
+      fq5:"Which languages can I learn?",fa5:"We teach 6 languages: English, French, Spanish, German, Italian, and Korean — each with dedicated programs and experienced instructors.",
+      ctaTitle:"Your journey to fluency starts now.",ctaDesc:"Limited spots available. Don't wait — apply today or message us on WhatsApp.",
+      ctaBtn1:"Apply Now",ctaBtn2:"💬 Message on WhatsApp",
+      conEye:"Reach us",conTitle:"Get in touch.",conDesc:"Fastest reply on WhatsApp — usually within a few hours.",
+      waT:"WhatsApp",waBtn:"Message Us",igT:"Instagram",igBtn:"Open Instagram",mlT:"Email",mlBtn:"Send Email",
+      footLine:"Morocco → The World 🌍",
+    },
+    fr:{
+      brandSub:"Excellence Language Academy",
+      navServices:"Services",navLangs:"Langues",navCerts:"Certificats",navOffer:"Offre",navApply:"Inscription",navContact:"Contact",
+      ctaTop:"S'inscrire",
+      heroBadge:"Inscriptions ouvertes — places limitées",
+      heroTitle1:"Toute langue.",heroTitle2:"Une mission :",heroTitle3:"VOUS.",
+      heroDesc:"Construisez une vraie aisance avec une expérience premium — confiance à l'oral, progression structurée et préparation aux examens.",
+      heroBtn1:"S'inscrire à un programme",heroBtn2:"💬 WhatsApp",
+      flagsLabel:"Nous enseignons :",
+      cardLabel:"Votre feuille de route",cardHeadline:"Ce que vous obtenez dès le premier jour.",
+      p1T:"Test de niveau",p1D:"Placement + étapes claires.",
+      p2T:"Confiance à l'oral",p2D:"Parlez naturellement, pas comme un manuel.",
+      p3T:"Stratégie d'examen",p3D:"Simulations + retour ciblé.",
+      p4T:"Suivi de progression",p4D:"Restez sur la bonne voie chaque semaine.",
+      statStudents:"Étudiants",statPass:"Taux de réussite",statLangs:"Langues",statOnline:"En ligne",
+      bn1:"Étudiants formés",bn2:"Taux de réussite",bn3:"Certifications couvertes",bn4:"Langues enseignées",
+      servEye:"Ce que nous proposons",servTitle:"Autour de votre objectif.",servDesc:"Options simples et ciblées — choisissez selon votre but.",
+      s1T:"Aisance & Expression",s1D:"Pratique orale, prononciation, confiance et communication.",
+      s2T:"Préparation Examens",s2D:"Stratégies, tests blancs, correction, amélioration du score.",
+      s3T:"Coaching Premium 1-à-1",s3D:"Plan personnalisé, progression rapide, suivi et feedback direct.",
+      langEye:"6 langues",langTitle:"Votre langue.",langDesc:"Enseignement de haut niveau dans les 6 langues les plus demandées — tous niveaux bienvenus.",
+      l1N:"Anglais",l2N:"Français",l3N:"Espagnol",l4N:"Allemand",l5N:"Italien",l6N:"Coréen",
+      certEye:"Préparation aux examens",certTitle:"Certifications Internationales.",certDesc:"Les certifications les plus demandées, enseignées par des spécialistes.",
+      certEN:"Examens d'anglais",certENDesc:"Préparation complète pour toutes les grandes certifications d'anglais.",
+      certFR:"Examens de français",certFRDesc:"Accompagnement expert pour toutes les certifications officielles de français.",
+      testEye:"Résultats",testTitle:"Vrais étudiants. Vrais résultats.",
+      t1Q:'"J\'ai eu 7.5 à l\'IELTS en seulement 3 mois. Les stratégies étaient parfaitement ciblées."',t1N:"Yasmine B.",t1M:"IELTS Academic — Band 7.5",
+      t2Q:'"Ma confiance à l\'oral a complètement changé. Je présente maintenant en anglais au travail."',t2N:"Karim A.",t2M:"Coaching 1-à-1",
+      t3Q:'"J\'ai eu le DALF C1 au premier essai. Le programme et les tests blancs ont tout changé."',t3N:"Sara M.",t3M:"DALF C1 — Premier essai",
+      offEye:"Offre Spéciale",offTitle:"Prix clair. Valeur sérieuse.",offDesc:"Une offre — sans frais cachés, sans confusion.",
+      offBadge:"Meilleure valeur",offKicker:"⏳ Places limitées",offPer:"/ 6 mois",offReg:"+ 150 DHS frais d'inscription uniques",offTotal:"Total : 1 150 DHS",
+      offBonus:"Mois de Ramadan offert",offBtn1:"S'inscrire",offBtn2:"Demander sur WhatsApp",offNote:"Les frais couvrent l'intégration, l'évaluation, le dossier étudiant et l'affectation au programme.",
+      incEye:"Inclus",incTitle:"Tout ce dont vous avez besoin.",
+      inc1:"Évaluation & placement",inc2:"Séances hebdomadaires structurées",inc3:"Suivi & rapports",
+      inc4:"Support stratégique pour l'examen",inc5:"Tests blancs avec corrections",inc6:"Support WhatsApp entre les séances",
+      appEye:"Commencer",appTitle:"Inscrivez-vous en quelques minutes.",appDesc:"Choisissez le bon formulaire. Nous vous contacterons via WhatsApp.",
+      a1T:"Prépa Certifications",a1D:"IELTS • TOEFL • TOEIC • Cambridge • DELF/DALF • TCF • TEF",a1Btn:"Ouvrir le formulaire →",
+      a2T:"Séance Gratuite",a2D:"Évaluation rapide + orientation pour le bon programme. Entièrement gratuit.",a2Btn:"Réserver →",
+      faqEye:"Questions",faqTitle:"Questions fréquentes.",
+      fq1:"Les séances sont-elles en ligne ?",fa1:"Toutes les séances se déroulent en ligne via appel vidéo, accessibles depuis partout.",
+      fq2:"Combien durent les séances ?",fa2:"60 minutes standard. Les séances premium peuvent être prolongées.",
+      fq3:"Et si je suis grand débutant ?",fa3:"Bienvenue ! La séance d'essai inclut une évaluation de niveau.",
+      fq4:"Que couvrent les frais d'inscription ?",fa4:"150 DHS pour l'intégration, évaluation, dossier et affectation — une seule fois pour les 6 mois.",
+      fq5:"Quelles langues proposez-vous ?",fa5:"Anglais, français, espagnol, allemand, italien et coréen — du débutant au niveau avancé.",
+      ctaTitle:"Votre parcours vers la maîtrise commence maintenant.",ctaDesc:"Places limitées. N'attendez pas.",
+      ctaBtn1:"S'inscrire",ctaBtn2:"💬 WhatsApp",
+      conEye:"Nous joindre",conTitle:"Contactez-nous.",conDesc:"Réponse la plus rapide sur WhatsApp.",
+      waT:"WhatsApp",waBtn:"Nous écrire",igT:"Instagram",igBtn:"Ouvrir Instagram",mlT:"Email",mlBtn:"Envoyer",
+      footLine:"Maroc → Le Monde 🌍",
+    },
+    ar:{
+      brandSub:"أكاديمية إكسلانغ للغات",
+      navServices:"الخدمات",navLangs:"اللغات",navCerts:"الشهادات",navOffer:"العرض",navApply:"التسجيل",navContact:"التواصل",
+      ctaTop:"سجّل الآن",
+      heroBadge:"التسجيل مفتوح — أماكن محدودة",
+      heroTitle1:"أي لغة.",heroTitle2:"هدف واحد:",heroTitle3:"أنت.",
+      heroDesc:"طوّر طلاقتك بثقة وبخطة واضحة — تدريب على التحدث، تقدم منظم، وتحضير للشهادات الدولية.",
+      heroBtn1:"سجّل في برنامج",heroBtn2:"💬 راسلنا واتساب",
+      flagsLabel:"ندرّس:",
+      cardLabel:"خارطة طريقك",cardHeadline:"ما تحصل عليه من اليوم الأول.",
+      p1T:"تقييم المستوى",p1D:"اختبار + خطوات واضحة.",
+      p2T:"تدريب الثقة",p2D:"تحدث بطبيعية، لا كما في الكتب.",
+      p3T:"استراتيجيات الامتحان",p3D:"نماذج + تصحيح مستهدف.",
+      p4T:"تتبع التقدم",p4D:"ابقَ على المسار كل أسبوع.",
+      statStudents:"طالب",statPass:"معدل النجاح",statLangs:"لغات",statOnline:"أونلاين",
+      bn1:"طالب تدرّب",bn2:"معدل النجاح",bn3:"شهادة معتمدة",bn4:"لغات مدرَّسة",
+      servEye:"ما نقدمه",servTitle:"مصمم حول هدفك.",servDesc:"برامج مركّزة — اختر ما يناسبك.",
+      s1T:"الطلاقة والمحادثة",s1D:"محادثة واقعية، نطق، وثقة يومية.",
+      s2T:"تحضير الشهادات",s2D:"استراتيجيات، نماذج، تصحيح، ورفع النتيجة.",
+      s3T:"تدريب فردي بريميوم",s3D:"خطة شخصية، تقدم سريع، متابعة، وتصحيح مباشر.",
+      langEye:"6 لغات",langTitle:"لغتك.",langDesc:"تعليم احترافي في أكثر 6 لغات طلباً — جميع المستويات مرحب بهم.",
+      l1N:"الإنجليزية",l2N:"الفرنسية",l3N:"الإسبانية",l4N:"الألمانية",l5N:"الإيطالية",l6N:"الكورية",
+      certEye:"تحضير الامتحانات",certTitle:"الشهادات الدولية.",certDesc:"أكثر الشهادات طلباً، يدرّسها متخصصون.",
+      certEN:"شهادات الإنجليزية",certENDesc:"تحضير شامل لجميع امتحانات الكفاءة الكبرى.",
+      certFR:"شهادات الفرنسية",certFRDesc:"إرشاد متخصص لامتحانات الفرنسية الرسمية.",
+      testEye:"نتائج الطلاب",testTitle:"طلاب حقيقيون. نتائج حقيقية.",
+      t1Q:'"اجتزت الآيلتس بـ 7.5 في 3 أشهر. الاستراتيجيات كانت دقيقة جداً."',t1N:"ياسمين ب.",t1M:"IELTS Academic — Band 7.5",
+      t2Q:'"ثقتي تحولت تماماً. أقدم الآن بالإنجليزية في العمل بدون تردد."',t2N:"كريم أ.",t2M:"تدريب فردي 1-1",
+      t3Q:'"حصلت على DALF C1 من المحاولة الأولى. هيكل البرنامج والنماذج غيّرا كل شيء."',t3N:"سارة م.",t3M:"DALF C1 — أول محاولة",
+      offEye:"عرض خاص",offTitle:"سعر واضح. قيمة حقيقية.",offDesc:"عرض واحد — لا رسوم مخفية، لا لبس.",
+      offBadge:"أفضل قيمة",offKicker:"⏳ أماكن محدودة",offPer:"/ 6 أشهر",offReg:"+ 150 درهم رسوم تسجيل لمرة واحدة",offTotal:"الإجمالي: 1,150 درهم",
+      offBonus:"شهر رمضان مجاناً",offBtn1:"سجّل الآن",offBtn2:"اسأل على واتساب",offNote:"رسوم التسجيل تشمل التهيئة وتقييم المستوى وملف الطالب.",
+      incEye:"يشمل",incTitle:"كل ما تحتاجه.",
+      inc1:"تقييم المستوى والتوزيع",inc2:"حصص أسبوعية منظمة",inc3:"تتبع التقدم والتقارير",
+      inc4:"دعم استراتيجيات الامتحان",inc5:"نماذج اختبار مع تصحيح",inc6:"دعم واتساب بين الحصص",
+      appEye:"ابدأ الآن",appTitle:"سجّل في دقائق.",appDesc:"اختر الاستمارة. سنتواصل معك عبر واتساب.",
+      a1T:"تحضير الشهادات",a1D:"IELTS • TOEFL • TOEIC • Cambridge • DELF/DALF • TCF • TEF",a1Btn:"فتح الاستمارة ←",
+      a2T:"حصة مجانية",a2D:"تقييم سريع + توجيه لوضعك في البرنامج المناسب. مجاناً.",a2Btn:"احجز الآن ←",
+      faqEye:"أسئلة",faqTitle:"الأسئلة الشائعة.",
+      fq1:"هل الحصص أونلاين؟",fa1:"جميع الحصص أونلاين عبر مكالمة فيديو من أي مكان.",
+      fq2:"كم تستغرق الحصة؟",fa2:"60 دقيقة. يمكن تمديد حصص التدريب الفردي.",
+      fq3:"ماذا لو كنت مبتدئاً؟",fa3:"نقبل جميع المستويات. الحصة التجريبية تشمل تقييم المستوى.",
+      fq4:"ماذا تشمل رسوم التسجيل؟",fa4:"150 درهم للتهيئة والتقييم والملف — دفعة واحدة لـ 6 أشهر.",
+      fq5:"ما اللغات التي تدرّسون؟",fa5:"ندرّس 6 لغات: الإنجليزية والفرنسية والإسبانية والألمانية والإيطالية والكورية.",
+      ctaTitle:"رحلتك نحو الإتقان تبدأ الآن.",ctaDesc:"أماكن محدودة. لا تنتظر.",
+      ctaBtn1:"سجّل الآن",ctaBtn2:"💬 واتساب",
+      conEye:"تواصل معنا",conTitle:"نحن هنا.",conDesc:"أسرع رد عبر واتساب.",
+      waT:"واتساب",waBtn:"راسلنا",igT:"إنستغرام",igBtn:"فتح إنستغرام",mlT:"البريد",mlBtn:"إرسال",
+      footLine:"المغرب → العالم 🌍",
+    }
+  };
+
+  function setLang(lang){
+    document.documentElement.lang = lang==="ar"?"ar":(lang==="fr"?"fr":"en");
+    document.documentElement.dir  = lang==="ar"?"rtl":"ltr";
+    ["en","fr","ar"].forEach(l => document.getElementById("btn"+l.toUpperCase()).classList.toggle("active", lang===l));
+    const d = T[lang];
+    document.querySelectorAll("[data-i]").forEach(el => {
+      const k = el.getAttribute("data-i");
+      if(d[k]!==undefined) el.innerHTML = d[k];
+    });
+  }
+  setLang("en");
+  document.getElementById("btnEN").addEventListener("click",()=>setLang("en"));
+  document.getElementById("btnFR").addEventListener("click",()=>setLang("fr"));
+  document.getElementById("btnAR").addEventListener("click",()=>setLang("ar"));
+  </script>
+</body>
+</html>
